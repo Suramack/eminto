@@ -6,4 +6,5 @@ class AppColors {
   static final Color white = Pigment.fromString('#ffffff');
   static final Color black = Pigment.fromString('#000000');
   static final Color primaryColor = Pigment.fromString('#29D177');
+  static final Color primaryGrey = Pigment.fromString('#7D7D7D');
 }

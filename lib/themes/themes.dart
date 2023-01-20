@@ -7,7 +7,7 @@ class Themes {
   static final ThemeData baseTheme = ThemeData.light();
 
   static ThemeData buildLightTheme() => ThemeData(
-        canvasColor: AppColors.primaryColor,
+        canvasColor: AppColors.white,
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         appBarTheme: _buildAppBarTheme(),
@@ -42,9 +42,11 @@ class Themes {
 
   static BottomNavigationBarThemeData _bottomNavigationBarThemeData() {
     return BottomNavigationBarThemeData(
-      selectedIconTheme: IconThemeData(
-        color: AppColors.primaryColor,
-      ),
+      backgroundColor: AppColors.white,
+      selectedItemColor: AppColors.primaryGrey,
+      unselectedItemColor: AppColors.primaryGrey,
+      type: BottomNavigationBarType.fixed,
+      showUnselectedLabels: true,
     );
   }
 
