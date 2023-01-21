@@ -1,4 +1,4 @@
-
+import 'package:emito/resources/strings.dart';
 import 'package:flutter/material.dart';
 
 class MyOrdersScreen extends StatefulWidget {
@@ -11,8 +11,8 @@ class MyOrdersScreen extends StatefulWidget {
 class _MyOrdersScreenState extends State<MyOrdersScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text('my orders screen'),
+    return Center(
+      child: Text(Strings.myOrder),
     );
   }
 }

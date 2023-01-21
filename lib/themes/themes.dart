@@ -13,22 +13,28 @@ class Themes {
         appBarTheme: _buildAppBarTheme(),
         textTheme: _buildLightTextTheme(),
         buttonTheme: _buildButtonTheme(),
+        textButtonTheme: _textButtonTheme(),
         unselectedWidgetColor: Colors.white,
         bottomNavigationBarTheme: _bottomNavigationBarThemeData(),
       );
 
   static AppBarTheme _buildAppBarTheme() {
     return AppBarTheme(
-      elevation: 0,
+      elevation: 1,
       systemOverlayStyle: SystemUiOverlayStyle.light,
-      color: AppColors.primaryColor,
       foregroundColor: AppColors.primaryColor,
+      backgroundColor: AppColors.white,
+      titleTextStyle: TextStyle(
+        color: AppColors.black,
+      ),
     );
   }
 
   static ButtonThemeData _buildButtonTheme() {
     return ButtonThemeData(
       buttonColor: AppColors.primaryColor,
+      highlightColor: AppColors.primaryColor,
+      hoverColor: AppColors.primaryColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
       ),
@@ -36,6 +42,16 @@ class Themes {
       colorScheme: baseTheme.colorScheme.copyWith(
         primary: AppColors.white,
         secondary: AppColors.primaryColor,
+      ),
+    );
+  }
+
+  static TextButtonThemeData _textButtonTheme() {
+    return TextButtonThemeData(
+      style: ButtonStyle(
+        foregroundColor: MaterialStatePropertyAll(
+          AppColors.primaryColor,
+        ),
       ),
     );
   }

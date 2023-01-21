@@ -41,6 +41,10 @@ dependencies:
   connectivity_plus: ^3.0.2
   http_interceptor: ^1.0.2
   lottie: ^2.2.0
+  location: ^4.4.0
+  permission_handler: ^10.2.0
+  geolocator: ^9.0.2
+  geocoding: ^2.0.5
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -89,6 +93,7 @@ flutter:
     - family: poppins
       fonts:
         - asset: assets/fonts/poppins/Poppins-Medium.ttf
+        - asset: assets/fonts/poppins/Poppins-Bold.ttf
         # - asset: assets/fonts/poppins
           style: italic
   #   - family: Trajan Pro

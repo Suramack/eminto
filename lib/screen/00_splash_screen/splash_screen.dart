@@ -1,3 +1,4 @@
+import 'package:emito/bloc/notification/notification_bloc.dart';
 import 'package:emito/resources/lottie_files.dart';
 import 'package:emito/resources/strings.dart';
 import 'package:emito/routes/routes.dart';
@@ -6,6 +7,7 @@ import 'package:emito/utils/navigations.dart';
 import 'package:emito/utils/utils.dart';
 import 'package:emito/widget/common/free_space/free_space.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lottie/lottie.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -16,13 +18,17 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  late NotificationBloc _notificationBloc;
   @override
   void initState() {
+    _notificationBloc =
+        BlocProvider.of<NotificationBloc>(context, listen: false);
     fetchData();
     super.initState();
   }
 
   void fetchData() async {
+    _notificationBloc.add(GetNotificationEvent());
     Future.delayed(const Duration(seconds: 3), () {
       Navigation.pushReplacementNamed(context, Routes.homeScreen);
     });

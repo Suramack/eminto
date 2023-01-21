@@ -13,14 +13,14 @@ class NotificationBloc extends Bloc<NotificationEvent, NotificationState> {
   NotificationBloc({required this.notificationService})
       : super(NotificationInitialState()) {
     on<NotificationInitialEvent>(loadInitialEvent);
+    on<GetNotificationEvent>(getNotification);
   }
   void loadInitialEvent(NotificationInitialEvent event, Emitter emitter) {
     emitter(NotificationInitialState);
   }
 
   void getNotification(NotificationEvent event, Emitter emitter) async {
-    emitter(NotificationLoadingState);
-
+    emitter(NotificationLoadingState());
     try {
       emitter(
         GetNotificationState(await notificationService.getNotification()),

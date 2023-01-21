@@ -1,3 +1,4 @@
+import 'package:emito/resources/strings.dart';
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -10,8 +11,8 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text('profile screen'),
+    return Center(
+      child: Text(Strings.profile),
     );
   }
 }

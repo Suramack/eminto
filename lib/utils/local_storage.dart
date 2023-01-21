@@ -6,4 +6,14 @@ class LocalStorage {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setString('notification', notification);
   }
+
+  static Future<void> clearNotification() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.remove('notification');
+  }
+
+  static Future<String> getNotification() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getString('notification') ?? '';
+  }
 }

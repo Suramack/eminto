@@ -5,6 +5,7 @@ import 'package:emito/screen/02_cart_screen/cart_screen.dart';
 import 'package:emito/screen/03_my_orders_screen/my_orders_screen.dart';
 import 'package:emito/screen/04_profile_screen/profile_screen.dart';
 import 'package:emito/themes/colors.dart';
+import 'package:emito/widget/common/app_bar/common_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -44,12 +45,22 @@ class _BaseLayoutState extends State<BaseLayout> {
 
   @override
   Widget build(BuildContext context) {
+    var args = ModalRoute.of(context) == null
+        ? {}
+        : ModalRoute.of(context)!.settings.arguments == null
+            ? {}
+            : ModalRoute.of(context)!.settings.arguments as Map;
     return SafeArea(
       top: false,
       child: Scaffold(
         resizeToAvoidBottomInset: false,
         extendBody: true,
-        appBar: widget.showAppBar ? AppBar() : null,
+        appBar: widget.showAppBar
+            ? commonAppbar(
+                context: context,
+                title: args['app_bar_title'] ?? Strings.dummyScreen,
+              )
+            : null,
         body: widget.showBottomNavBar
             ? PageView(
                 physics: const NeverScrollableScrollPhysics(),

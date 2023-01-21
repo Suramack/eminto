@@ -17,7 +17,7 @@ class Utils {
     if (response.statusCode == 500) {
       return Strings.pleaseTryAgain;
     } else if (response.statusCode == 404) {
-      return Strings.inProgress;
+      return Strings.inProgressPlease;
     } else {
       return getErrorMessage(response.body);
     }

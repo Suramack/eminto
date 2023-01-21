@@ -1,15 +1,16 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:emito/core/service/interceptor_header/interceptor_header.dart';
 import 'package:emito/resources/strings.dart';
+import 'package:emito/widget/common/toast/toast.dart';
 import 'package:http/http.dart' as http;
 import 'package:http_interceptor/http_interceptor.dart';
 
 class ServiceBase {
-   static String apiBaseUrl = 'https://raw.githubusercontent.com/';
+  static String apiBaseUrl = 'https://raw.githubusercontent.com/';
 
   static Future<http.Response> get({
     String? url,
-    String? baseUrl,
+    String? baseUrl = '',
     Map<String, String>? headers,
   }) async {
     var networkStataus = await checkConnectionStatus();
@@ -33,5 +34,6 @@ Future<bool> checkConnectionStatus() async {
   } else if (connectivityResult == ConnectivityResult.wifi) {
     return true;
   }
+  showToast(Strings.noInternetAvailable);
   return false;
 }
